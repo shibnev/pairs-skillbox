@@ -1,0 +1,244 @@
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#root {
+  position: relative;
+  padding: 5vh 0;
+}
+
+.cards-list {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1vw;
+}
+
+.timer {
+  text-align: right;
+  font-size: 10vw;
+  font-weight: 700;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.timer--active {
+  opacity: 1;
+}
+
+.top {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.4s ease-in-out, -webkit-box-shadow 0.2s ease-in-out,
+    -webkit-filter 0.2s ease-in-out;
+  transition: opacity 0.2s, -webkit-transform 0.4s ease-in-out, -webkit-box-shadow 0.2s ease-in-out,
+    -webkit-filter 0.2s ease-in-out;
+  -o-transition: transform 0.4s ease-in-out, box-shadow 0.2s ease-in-out,
+    filter 0.2s ease-in-out, opacity 0.2s;
+  transition: transform 0.4s ease-in-out, box-shadow 0.2s ease-in-out,
+    filter 0.2s ease-in-out, opacity 0.2s;
+  transition: transform 0.4s ease-in-out, box-shadow 0.2s ease-in-out,
+    filter 0.2s ease-in-out, opacity 0.2s, -webkit-transform 0.4s ease-in-out, -webkit-box-shadow 0.2s ease-in-out,
+    -webkit-filter 0.2s ease-in-out;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  border: none;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  background-color: rgb(209, 209, 209);
+}
+
+.card:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #ff6f6f;
+  border-radius: 0.25rem;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.card--active {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  pointer-events: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.card--no-touch {
+  pointer-events: none;
+}
+
+.card__title {
+  font-size: 4vw;
+  margin-bottom: 0;
+  -webkit-transform: scale(-1, 1);
+      -ms-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+  mix-blend-mode: difference;
+  /* color: #fff; */
+}
+
+.status {
+  text-align: center;
+  margin-top: 2vw;
+  font-weight: 900;
+  font-size: 5vw;
+  display: none;
+}
+
+.status--active {
+  display: block;
+}
+
+.start-btn {
+  font-size: 2vw;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.input__feedback {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.input__feedback.active {
+  opacity: 1;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#form.disable {
+  opacity: 0.5;
+  cursor: not-allowed;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+#form.disable > * {
+  pointer-events: none;
+}
+
+.winners {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5rem 1rem 1rem 1rem;
+  background-color: #fff;
+  -webkit-transform: translate(120%);
+      -ms-transform: translate(120%);
+          transform: translate(120%);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  height: 100vh;
+}
+
+.winners__trigger {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
+
+.winners--active {
+  -webkit-transform: translate(0);
+      -ms-transform: translate(0);
+          transform: translate(0);
+}
+
+.b-modal {
+  position: fixed;
+  padding: 3rem;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+      -ms-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  -webkit-transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition-delay: 0.5s;
+       -o-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  opacity: 1;
+  max-width: 740px !important;
+}
+
+.b-modal--hide {
+  -webkit-transform: translate(-50%, -50%) scale(0);
+      -ms-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.table__body-name span {
+  width: 110px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  display: inline-block;
+}
